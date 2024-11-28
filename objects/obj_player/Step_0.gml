@@ -5,7 +5,7 @@ var _chao = place_meeting(x, y + 1, obj_block);
 
 _right = keyboard_check(ord("D"));
 _left = keyboard_check(ord("A"));
-_jump = keyboard_check_pressed(ord("K"));
+_jump = keyboard_check_pressed(vk_space);
 
 // Código de movimentação
 
@@ -15,15 +15,12 @@ velh = (_right - _left) * velh_maxima;
 
 if (!_chao)
 {
-	if (velv < velv_maxima * 2) //Pra queda ser mais lenta
-	{
-	velv += GRAVIDADE * massa;
-	}
+	velv += gravity * massa;
 }
-else //Pular se estiver no chão OBS: pulo nao esta funcionando ainda
+else //Pular se estiver no chão OBS: PULO AGORA FUNCIONA
 {
 	if (_jump)
 	{
-		velv = -velv_maxima;
+		velv =-6
 	}
 }

@@ -18,13 +18,10 @@ repeat(abs(velh))
 }
 
 //Vertical
-repeat(abs(velv))
-{
-	if (place_meeting(x,y+1+ _velv, obj_block))
-	{
-		velv = 0;
-		break;
+if place_meeting(x, y + velv, obj_block){
+	while !place_meeting(x, y+sign(velv), obj_block){
+		y = y + sign(velv);
 	}
-	
-	y += _velv;
+	velv = 0;
 }
+y = y + velv;

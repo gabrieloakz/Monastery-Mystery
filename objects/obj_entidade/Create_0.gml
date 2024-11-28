@@ -24,9 +24,13 @@ massa = 1;
 
 ataque = 1;
 
-//Direção  direita ou esquerda
+//Direção direita ou esquerda
 
 xscale = 1;
+
+//Estados
+
+estado = "parado";
 
 
 
