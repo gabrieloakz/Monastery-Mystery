@@ -17,6 +17,7 @@
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
     {"name":"Misc","order":3,"path":"folders/Sprites/Misc.yy",},
     {"name":"Player","order":1,"path":"folders/Sprites/Player.yy",},
+    {"name":"Movendo","order":2,"path":"folders/Sprites/Player/Movendo.yy",},
     {"name":"Parado","order":1,"path":"folders/Sprites/Player/Parado.yy",},
   ],
   "ResourceOrderSettings":[

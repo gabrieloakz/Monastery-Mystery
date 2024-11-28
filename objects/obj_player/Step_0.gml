@@ -24,3 +24,31 @@ else //Pular se estiver no chão OBS: PULO AGORA FUNCIONA
 		velv =-6
 	}
 }
+
+switch(estado)
+{
+	case "parado":
+	{
+		//Comportamento do estado
+		sprite_index = spr_player_parado1
+		
+		//Condição de troca de estado 
+		if (_right || _left)              
+		{
+			estado = "movendo"
+		}
+		
+		break;
+		
+	}
+	
+	case "movendo":
+	{
+		//Comportamento do estado
+		sprite_index = spr_player_run
+		
+		
+		break;
+		
+	} 
+}
