@@ -48,7 +48,15 @@ switch(estado)
 		sprite_index = spr_player_run
 		
 		
+		//Condição de troca de estado para parar
+		if (abs(velh) < .1)              
+		{
+			estado = "parado";
+			velh = 0;
+		}
+		
 		break;
+		
 		
 	} 
 }

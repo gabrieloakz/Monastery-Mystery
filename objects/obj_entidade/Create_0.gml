@@ -13,8 +13,8 @@ velv = 0; // Vertcal
 
 //Velocidade máxima
 
-velh_maxima = 1;
-velv_maxima = 1 ;
+velh_maxima = 5;
+velv_maxima = 1;
 
 //Peso gravitacional
 
