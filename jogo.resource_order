@@ -24,5 +24,6 @@
     {"name":"obj_block","order":2,"path":"objects/obj_block/obj_block.yy",},
     {"name":"obj_entidade","order":1,"path":"objects/obj_entidade/obj_entidade.yy",},
     {"name":"spr_player_parado2","order":1,"path":"sprites/spr_player_parado2/spr_player_parado2.yy",},
+    {"name":"spr_tileset","order":1,"path":"sprites/spr_tileset/spr_tileset.yy",},
   ],
 }

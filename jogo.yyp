@@ -47,6 +47,8 @@
     {"id":{"name":"spr_player_parado1","path":"sprites/spr_player_parado1/spr_player_parado1.yy",},},
     {"id":{"name":"spr_player_parado2","path":"sprites/spr_player_parado2/spr_player_parado2.yy",},},
     {"id":{"name":"spr_player_run","path":"sprites/spr_player_run/spr_player_run.yy",},},
+    {"id":{"name":"spr_tileset","path":"sprites/spr_tileset/spr_tileset.yy",},},
+    {"id":{"name":"t_ground","path":"tilesets/t_ground/t_ground.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
