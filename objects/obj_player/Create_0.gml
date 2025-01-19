@@ -6,7 +6,7 @@ event_inherited();
 vida_max = 10;
 vida_atual = vida_max;
 
-velh = 4; 
+velh = 1; 
 velv = 6; 
 
 
