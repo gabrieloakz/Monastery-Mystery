@@ -16,8 +16,10 @@
     {"name":"Sons","order":2,"path":"folders/Sons.yy",},
     {"name":"Misc","order":3,"path":"folders/Sprites/Misc.yy",},
     {"name":"Player","order":1,"path":"folders/Sprites/Player.yy",},
+    {"name":"Caindo","order":4,"path":"folders/Sprites/Player/Caindo.yy",},
     {"name":"Movendo","order":2,"path":"folders/Sprites/Player/Movendo.yy",},
     {"name":"Parado","order":1,"path":"folders/Sprites/Player/Parado.yy",},
+    {"name":"Pulando","order":3,"path":"folders/Sprites/Player/Pulando.yy",},
   ],
   "ResourceOrderSettings":[
     {"name":"obj_block","order":2,"path":"objects/obj_block/obj_block.yy",},
