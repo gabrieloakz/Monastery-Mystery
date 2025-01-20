@@ -17,3 +17,14 @@ surface_resize(application_surface, global.base_width, global.base_height);
 
 // Ativa a manutenção do aspecto no escalonamento
 display_set_gui_size(global.base_width, global.base_height);
+
+// Configuração inicial da câmara
+var cam = camera_create_view(0, 0, global.base_width, global.base_height, 0, obj_player, -1, -1, -1, -1);
+view_camera[0] = cam;
+
+// Define o tamanho da view da câmara
+camera_set_view_size(cam, global.base_width, global.base_height);
+
+// Aplica a câmara à viewport 0
+view_enabled = true;
+view_set_camera(0, cam);
