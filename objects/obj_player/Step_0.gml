@@ -21,7 +21,7 @@ else //Pular se estiver no chão OBS: PULO AGORA FUNCIONA
 {
 	if (_jump)
 	{
-		velv =-6
+		velv =-5;
 	}
 }
 
