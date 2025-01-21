@@ -7,7 +7,7 @@ vida_max = 10;
 vida_atual = vida_max;
 
 velh = 1; 
-velv = 4; 
+velv = 1; 
 
 velh_maxima = 2;
-velv_maxima = 1;
+velv_maxima = 5;

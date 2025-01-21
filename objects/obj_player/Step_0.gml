@@ -17,12 +17,12 @@ if (!_chao)
 {
 	velv += gravity * massa;
 }
-else //Pular se estiver no chão OBS: PULO AGORA FUNCIONA
+
+//Anti ghosting
+if (_right and _left)
 {
-	if (_jump)
-	{
-		velv =-5;
-	}
+	estado = "parado";
+	velh = 0;
 }
 
 switch(estado)
@@ -36,6 +36,11 @@ switch(estado)
 		if (_right || _left)              
 		{
 			estado = "movendo"
+		}
+		else if (_jump)
+		{
+			estado = "pulando";
+			velv = -velv_maxima;
 		}
 		
 		break;
@@ -53,8 +58,38 @@ switch(estado)
 			estado = "parado";
 			velh = 0;
 		}
+		else if (_jump)
+		{
+			estado = "pulando";
+			velv = -velv_maxima;
+		}
 		
 		break;
-		
 	} 
+	
+	case "pulando":
+	{
+		// Se player no ar 
+		if(velv > 0)
+		{
+			sprite_index = spr_player_fall;
+		}
+		else
+		{
+			sprite_index = spr_player_jump;
+			//Garantindo que a animação não se repita
+			if(image_index >= image_number - 1)
+			{
+				image_index = image_number -1;
+			}
+		}
+		
+		//Condição de troca de estado
+		if (_chao)
+		{
+			estado = "parado";
+		}
+		
+		break;
+	}
 }
