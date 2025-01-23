@@ -11,3 +11,5 @@ velv = 1;
 
 velh_maxima = 2;
 velv_maxima = 5;
+
+player_interacts_with_sword = false;  
