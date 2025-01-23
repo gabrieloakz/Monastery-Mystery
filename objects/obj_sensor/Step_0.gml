@@ -3,10 +3,10 @@ var player = place_meeting(x, y, obj_player);
 
 //Ativar transição
 
-var space = keyboard_check_released(vk_space)
+var w = keyboard_check_released(ord("W"))
 
 //Se apertou a tecla espaço
-if (player && space)
+if (player && w)
 {
 	//Transição
 	var tran = instance_create_layer(0, 0, layer, obj_transition);
