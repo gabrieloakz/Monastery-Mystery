@@ -1,16 +1,16 @@
 {
   "$GMRoom":"v1",
-  "%Name":"Room1",
+  "%Name":"Forest",
   "creationCodeFile":"",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
   "instanceCreationOrder":[
-    {"name":"inst_3F11E48A","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_1EA52BB1","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_7D0E071A","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_32E05F0D","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_55AFF97F","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_3F11E48A","path":"rooms/Forest/Forest.yy",},
+    {"name":"inst_1EA52BB1","path":"rooms/Forest/Forest.yy",},
+    {"name":"inst_7D0E071A","path":"rooms/Forest/Forest.yy",},
+    {"name":"inst_32E05F0D","path":"rooms/Forest/Forest.yy",},
+    {"name":"inst_55AFF97F","path":"rooms/Forest/Forest.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -33,7 +33,7 @@
     {"$GMRBackgroundLayer":"","%Name":"Backgrounds_1","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Backgrounds_1","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"floresta_layer1","path":"sprites/floresta_layer1/floresta_layer1.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":500,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
-  "name":"Room1",
+  "name":"Forest",
   "parent":{
     "name":"Cenas",
     "path":"folders/Cenas.yy",
