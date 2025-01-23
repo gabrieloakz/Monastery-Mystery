@@ -15,6 +15,7 @@
     {"name":"Shaders","order":5,"path":"folders/Shaders.yy",},
     {"name":"Sons","order":2,"path":"folders/Sons.yy",},
     {"name":"Forest","order":4,"path":"folders/Sprites/Forest.yy",},
+    {"name":"Monk","order":5,"path":"folders/Sprites/Monk.yy",},
     {"name":"Level1","order":2,"path":"folders/Sprites/Level1.yy",},
     {"name":"Misc","order":1,"path":"folders/Sprites/Misc.yy",},
     {"name":"Caindo","order":4,"path":"folders/Sprites/Player/Caindo.yy",},
