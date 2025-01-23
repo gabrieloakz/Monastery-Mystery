@@ -14,6 +14,4 @@ if (player && space)
 	tran.goal_x = goal_y;
 	tran.goal_y = goal_y;
 	
-	//Debug
-	show_message("Funfou");
 }
