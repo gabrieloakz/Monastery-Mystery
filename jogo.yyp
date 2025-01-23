@@ -58,7 +58,6 @@
     {"id":{"name":"spr_background_monastery","path":"sprites/spr_background_monastery/spr_background_monastery.yy",},},
     {"id":{"name":"spr_block","path":"sprites/spr_block/spr_block.yy",},},
     {"id":{"name":"spr_columns_monastery","path":"sprites/spr_columns_monastery/spr_columns_monastery.yy",},},
-    {"id":{"name":"spr_monk_idle","path":"sprites/spr_monk_idle/spr_monk_idle.yy",},},
     {"id":{"name":"spr_player_fall","path":"sprites/spr_player_fall/spr_player_fall.yy",},},
     {"id":{"name":"spr_player_jump","path":"sprites/spr_player_jump/spr_player_jump.yy",},},
     {"id":{"name":"spr_player_parado1","path":"sprites/spr_player_parado1/spr_player_parado1.yy",},},
