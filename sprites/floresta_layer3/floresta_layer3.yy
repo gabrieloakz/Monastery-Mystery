@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"jogo",
-    "path":"jogo.yyp",
+    "name":"Forest",
+    "path":"folders/Sprites/Forest.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
