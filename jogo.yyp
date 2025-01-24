@@ -55,6 +55,7 @@
     {"id":{"name":"Forest","path":"rooms/Forest/Forest.yy",},},
     {"id":{"name":"Level1","path":"rooms/Level1/Level1.yy",},},
     {"id":{"name":"scr_init","path":"scripts/scr_init/scr_init.yy",},},
+    {"id":{"name":"soundtrack","path":"sounds/soundtrack/soundtrack.yy",},},
     {"id":{"name":"floresta_layer1","path":"sprites/floresta_layer1/floresta_layer1.yy",},},
     {"id":{"name":"floresta_layer2","path":"sprites/floresta_layer2/floresta_layer2.yy",},},
     {"id":{"name":"floresta_layer3","path":"sprites/floresta_layer3/floresta_layer3.yy",},},
