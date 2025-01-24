@@ -59,12 +59,14 @@ switch(estado)
 
     case "movendo":
     {
-        // Se o jogador está interagindo com a espada, muda o sprite para o "movendo" com espada
-        if (player_interacts_with_sword) {
-            sprite_index = spr_player_run;  // Sprite para quando o jogador está correndo com espada
-        } else {
-            sprite_index = spr_player_run;  // Sprite normal de corrida
-        }
+        // Se o jogador está interagindo com a espada, muda o sprite para o "guardando" a espada
+    if (player_interacts_with_sword) {
+        sprite_index = spr_guardar_espada;  // Sprite para quando o jogador guarda a espada
+        image_speed = 0.001;  // Controla a velocidade da animação (valor menor para mais lento)
+    } else {
+        sprite_index = spr_player_run;  // Sprite normal de corrida (sem espada)
+        image_speed = 1;  // Velocidade normal da animação
+    }
 
         // Comportamento do estado
         if (abs(velh) < .1) {

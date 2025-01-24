@@ -19,6 +19,7 @@
     {"name":"Misc","order":1,"path":"folders/Sprites/Misc.yy",},
     {"name":"Monk","order":5,"path":"folders/Sprites/Monk.yy",},
     {"name":"Caindo","order":4,"path":"folders/Sprites/Player/Caindo.yy",},
+    {"name":"Equipamentos","order":5,"path":"folders/Sprites/Player/Equipamentos.yy",},
     {"name":"Movendo","order":2,"path":"folders/Sprites/Player/Movendo.yy",},
     {"name":"Parado","order":1,"path":"folders/Sprites/Player/Parado.yy",},
     {"name":"Pulando","order":3,"path":"folders/Sprites/Player/Pulando.yy",},
