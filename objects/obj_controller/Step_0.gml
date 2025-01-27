@@ -18,7 +18,7 @@ camera_y = clamp(camera_y, 0, room_height - camera_height);
 camera_set_view_pos(view_camera[0], camera_x, camera_y);
 
 // Velocidades do parallax para diferentes camadas de fundo
-var parallax_speed_1 = 1000000000000;    // Velocidade para o fundo mais próximo
+var parallax_speed_1 = 1;    // Velocidade para o fundo mais próximo
 var parallax_speed_2 = 0.5;  // Velocidade para o fundo intermediário
 var parallax_speed_3 = 0.2;  // Velocidade para o fundo mais distante
 
