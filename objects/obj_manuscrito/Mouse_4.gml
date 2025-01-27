@@ -9,3 +9,5 @@ if (espada_visivel == false)
 {
     show_message("A espada já está visível.");
 }
+
+
