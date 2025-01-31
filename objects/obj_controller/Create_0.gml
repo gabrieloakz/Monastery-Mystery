@@ -28,3 +28,11 @@ camera_set_view_size(cam, global.base_width, global.base_height);
 // Aplica a câmara à viewport 0
 view_enabled = true;
 view_set_camera(0, cam);
+
+// No Evento Create de obj_music_controller
+if (!audio_is_playing(soundtrack)) {
+    // Verifica se a música não está tocando, e toca ela em loop
+    audio_play_sound(soundtrack, 1, true);  // 1 significa volume máximo e 'true' significa loop
+}
+
+
