@@ -32,6 +32,11 @@ if (instance_exists(obj_sword)) {
     }
 }
 
+// Reduzindo o cooldown entre ataques
+if (combo_cooldown > 0) {
+    combo_cooldown -= 1; // Diminui o cooldown a cada step
+}
+
 // Lógica de estados
 switch (estado) {
     case "parado":
@@ -129,10 +134,13 @@ switch (estado) {
                     break;
             }
 
-            // Avançar no combo se possível
+            // Avançar no combo se possível e se o cooldown estiver pronto
             if (_attack && combo < 2 && image_index >= (image_number - 2)) {
-                combo++;
-                image_index = 0; // Reiniciar o frame da animação
+                if (combo_cooldown == 0) { // Verifica se o cooldown terminou
+                    combo++;
+                    image_index = 0; // Reinicia o frame da animação
+                    combo_cooldown = 10; // Define o tempo de recarga (em steps)
+                }
             }
 
             // Voltar ao estado "parado" ao finalizar o combo
@@ -140,6 +148,7 @@ switch (estado) {
                 estado = "parado";
                 velh = 0;
                 combo = 0;
+                combo_cooldown = 0; // Reseta o cooldown ao finalizar o combo
             }
             break;
         }

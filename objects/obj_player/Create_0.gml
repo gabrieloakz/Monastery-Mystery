@@ -15,3 +15,5 @@ velv_maxima = 5;
 player_interacts_with_sword = false;
 
 combo = 0;
+
+combo_cooldown = 0; 
