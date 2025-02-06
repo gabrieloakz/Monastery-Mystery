@@ -1,8 +1,8 @@
-// Declaração de variáveis globais para a resolução base do jogo
+// Declaração de variáveis globais para resolução base do jogo
 global.base_width = 320;  // Largura da câmara base
 global.base_height = 180; // Altura da câmara base
 
-// Obtém a largura e altura do ecrã do dispositivo
+// Obtém a largura e altura do dispositivo
 var screen_width = display_get_width();
 var screen_height = display_get_height();
 
@@ -29,10 +29,7 @@ camera_set_view_size(cam, global.base_width, global.base_height);
 view_enabled = true;
 view_set_camera(0, cam);
 
-// No Evento Create de obj_music_controller
-if (!audio_is_playing(soundtrack)) {
-    // Verifica se a música não está tocando, e toca ela em loop
-    audio_play_sound(soundtrack, 1, true);  // 1 significa volume máximo e 'true' significa loop
-}
-
-
+// Variáveis para controle de parallax
+parallax_speed_1 = 1;    // Velocidade para o fundo mais próximo
+parallax_speed_2 = 0.5;  // Velocidade para o fundo intermediário
+parallax_speed_3 = 0.2;  // Velocidade para o fundo mais distante
