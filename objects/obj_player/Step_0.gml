@@ -8,6 +8,7 @@ var player_interacts_with_sword = false;
 _right = keyboard_check(ord("D"));
 _left = keyboard_check(ord("A"));
 _jump = keyboard_check_pressed(vk_space);
+_attack = keyboard_check_pressed(ord("J"));
 
 // Código de movimentação
 velh = (_right - _left) * velh_maxima;
@@ -39,20 +40,38 @@ switch(estado)
     case "parado":
     {
         // Se o jogador está interagindo com a espada, muda o sprite para o "parado" com espada
-        if (player_interacts_with_sword) {
-            sprite_index = spr_player_parado2;  // Sprite para quando o jogador está parado com espada
-        } else {
-            sprite_index = spr_player_parado1;  // Sprite normal sem espada
-        }
+        
+		if (player_interacts_with_sword) 
+		{
+            
+			sprite_index = spr_player_parado2;  // Sprite para quando o jogador está parado com espada
+        
+		} 
+		else 
+		{
+            
+			sprite_index = spr_player_parado1;  // Sprite normal sem espada
+       
+	    }
 
         // Comportamento do estado
         if (_right || _left) {
-            estado = "movendo";
+           
+		   estado = "movendo";
+       
+	    }
+        else if (_jump ) {
+           
+		   estado = "pulando";
+           velv = -velv_maxima;
+		   image_index = 0;
         }
-        else if (_jump) {
-            estado = "pulando";
-            velv = -velv_maxima;
-        }
+		else if (_attack)
+		{
+			estado = "ataque";
+			velh = 0;
+			image_index = 0;
+		}
         
         break;
     }
@@ -109,4 +128,16 @@ switch(estado)
 
         break;
     }
+	
+	case "ataque":
+	{
+		velh = 0;
+		
+		sprite_index = spr_player_attack1;
+		
+		if (image_index > (image_number - 1))
+		{
+			estado = "parado";
+		}
+	}
 }

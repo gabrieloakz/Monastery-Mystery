@@ -28,6 +28,9 @@ ataque = 1;
 
 xscale = 1;
 
+// Velocidade desejada da animação (frames por segundo)
+img_spd = 50; 
+
 //Estados
 
 estado = "parado";
