@@ -31,6 +31,7 @@
     {"name":"obj_dialog","order":6,"path":"objects/obj_dialog/obj_dialog.yy",},
     {"name":"obj_entidade","order":1,"path":"objects/obj_entidade/obj_entidade.yy",},
     {"name":"obj_manuscrito","order":7,"path":"objects/obj_manuscrito/obj_manuscrito.yy",},
+    {"name":"obj_monk","order":9,"path":"objects/obj_monk/obj_monk.yy",},
     {"name":"obj_sensor","order":4,"path":"objects/obj_sensor/obj_sensor.yy",},
     {"name":"obj_sword","order":8,"path":"objects/obj_sword/obj_sword.yy",},
     {"name":"obj_transition","order":5,"path":"objects/obj_transition/obj_transition.yy",},
