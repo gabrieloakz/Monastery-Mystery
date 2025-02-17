@@ -45,6 +45,8 @@
   },
   "name":"jogo",
   "resources":[
+    {"id":{"name":"font_main","path":"fonts/font_main/font_main.yy",},},
+    {"id":{"name":"font_secondary","path":"fonts/font_secondary/font_secondary.yy",},},
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},},
     {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},},
     {"id":{"name":"obj_entidade","path":"objects/obj_entidade/obj_entidade.yy",},},

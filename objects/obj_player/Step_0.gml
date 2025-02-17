@@ -1,3 +1,19 @@
+// Só atualiza se tiver controle
+if (obj_controller.player_controls) {
+    // Movimento
+    var move = keyboard_check(vk_right) - keyboard_check(vk_left);
+    hspeed = move * velh;
+    
+    // Direção
+    if (hspeed != 0) xscale = sign(hspeed);
+    
+    // Animação
+    image_xscale = xscale;
+    image_speed = img_spd / game_get_speed(gamespeed_fps);
+} else {
+    hspeed = 0; // Congela movimento
+}
+
 // Iniciando as variáveis
 var _right, _left, _jump, _attack;
 var _chao = place_meeting(x, y + 1, obj_block);

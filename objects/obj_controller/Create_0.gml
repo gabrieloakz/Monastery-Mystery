@@ -1,35 +1,38 @@
-// Declaração de variáveis globais para resolução base do jogo
-global.base_width = 320;  // Largura da câmara base
-global.base_height = 180; // Altura da câmara base
+// Configuração de resolução e câmera
+global.base_width = 320;
+global.base_height = 180;
 
-// Obtém a largura e altura do dispositivo
 var screen_width = display_get_width();
 var screen_height = display_get_height();
-
-// Calcula o fator de escalonamento para manter a proporção
 var scale_factor = min(screen_width / global.base_width, screen_height / global.base_height);
 
-// Ajusta o tamanho da janela com base na escala calculada
 window_set_size(global.base_width * scale_factor, global.base_height * scale_factor);
-
-// Redimensiona a surface principal para corresponder à resolução base
 surface_resize(application_surface, global.base_width, global.base_height);
-
-// Ativa a manutenção do aspecto no escalonamento
 display_set_gui_size(global.base_width, global.base_height);
 
-// Configuração inicial da câmara
+// Criação da câmera
 var cam = camera_create_view(0, 0, global.base_width, global.base_height, 0, obj_player, -1, -1, -1, -1);
 view_camera[0] = cam;
-
-// Define o tamanho da view da câmara
 camera_set_view_size(cam, global.base_width, global.base_height);
-
-// Aplica a câmara à viewport 0
 view_enabled = true;
 view_set_camera(0, cam);
 
-// Variáveis para controle de parallax
-parallax_speed_1 = 1;    // Velocidade para o fundo mais próximo
-parallax_speed_2 = 0.5;  // Velocidade para o fundo intermediário
-parallax_speed_3 = 0.2;  // Velocidade para o fundo mais distante
+// Parallax
+parallax_speed_1 = 0.05;
+parallax_speed_2 = 0.1;
+parallax_speed_3 = 0.15;
+
+// Configuração de fontes
+font_title = font_main; 
+font_menu = font_secondary; 
+
+// Estados do jogo
+game_state = "transition_in"; // Estados: transition_in, playing, paused
+fade_alpha = 1; // Para transição inicial
+menu_active = true;
+player_controls = false; // Controles desativados inicialmente
+
+
+// Menu
+menu_options = ["Play", "Options", "Exit"];
+selected_option = 0;

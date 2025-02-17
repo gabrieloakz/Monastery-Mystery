@@ -26,6 +26,7 @@
     {"name":"Pulando","order":3,"path":"folders/Sprites/Player/Pulando.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"font_secondary","order":1,"path":"fonts/font_secondary/font_secondary.yy",},
     {"name":"obj_block","order":2,"path":"objects/obj_block/obj_block.yy",},
     {"name":"obj_controller","order":3,"path":"objects/obj_controller/obj_controller.yy",},
     {"name":"obj_entidade","order":1,"path":"objects/obj_entidade/obj_entidade.yy",},
