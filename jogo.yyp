@@ -47,7 +47,6 @@
   "resources":[
     {"id":{"name":"obj_block","path":"objects/obj_block/obj_block.yy",},},
     {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},},
-    {"id":{"name":"obj_dialog","path":"objects/obj_dialog/obj_dialog.yy",},},
     {"id":{"name":"obj_entidade","path":"objects/obj_entidade/obj_entidade.yy",},},
     {"id":{"name":"obj_monk","path":"objects/obj_monk/obj_monk.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
