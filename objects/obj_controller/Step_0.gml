@@ -10,7 +10,7 @@ var camera_width = camera_get_view_width(view_camera[0]);
 var camera_height = camera_get_view_height(view_camera[0]);
 
 // Calcula a posição da câmara com suavização (lerp para suavizar o movimento)
-var target_camera_x = clamp(player_x - camera_width / 2, 0, room_width - camera_width);
+var target_camera_x = clamp(player_x - camera_width / 10, 0, room_width - camera_width);
 var target_camera_y = clamp(player_y - camera_height / 2, 0, room_height - camera_height);
 
 var smooth_factor = 0.1; // Fator de suavização (ajuste conforme necessário)
@@ -23,12 +23,7 @@ var new_camera_y = lerp(current_camera_y, target_camera_y, smooth_factor);
 // Atualiza a posição da câmara
 camera_set_view_pos(view_camera[0], new_camera_x, new_camera_y);
 
-// Calcula as posições dos fundos com base na posição da câmara
-layer_x("bg_1", target_camera_x * -0.02);
-layer_x("bg_2", target_camera_x * -0.05);
-layer_x("bg_3", target_camera_x * -0.1);
-
-// Debugging opcional
-// show_debug_message("Background 1 X: " + string(background_x[0]));
-// show_debug_message("Background 2 X: " + string(background_x[1]));
-// show_debug_message("Background 3 X: " + string(background_x[2]));
+// Ajusta o parallax com base na posição da câmara
+layer_x("bg_1", new_camera_x * -0.05); // Fundo mais distante (move-se muito devagar)
+layer_x("bg_2", new_camera_x * -0.1); // Fundo intermediário (move-se devagar)
+layer_x("bg_3", new_camera_x * -0.15);  // Fundo mais próximo (move-se um pouco mais rápido)
