@@ -31,7 +31,7 @@ game_state = "transition_in"; // Estados: transition_in, playing, paused
 fade_alpha = 1; // Para transição inicial
 menu_active = true;
 player_controls = false; // Controles desativados inicialmente
-
+//game_state = "menu";
 
 // Menu
 menu_options = ["Play", "Options", "Exit"];
