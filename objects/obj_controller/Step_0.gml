@@ -24,9 +24,9 @@ var new_camera_y = lerp(current_camera_y, target_camera_y, smooth_factor);
 camera_set_view_pos(view_camera[0], new_camera_x, new_camera_y);
 
 // Calcula as posições dos fundos com base na posição da câmara
-layer_x("bg_1", target_camera_x * -0.2);
-layer_x("bg_2", target_camera_x * -0.3);
-layer_x("bg_3", target_camera_x * -0.5);
+layer_x("bg_1", target_camera_x * -0.02);
+layer_x("bg_2", target_camera_x * -0.05);
+layer_x("bg_3", target_camera_x * -0.1);
 
 // Debugging opcional
 // show_debug_message("Background 1 X: " + string(background_x[0]));
