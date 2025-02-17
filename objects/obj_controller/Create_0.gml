@@ -36,3 +36,5 @@ player_controls = false; // Controles desativados inicialmente
 // Menu
 menu_options = ["Play", "Options", "Exit"];
 selected_option = 0;
+
+audio_play_sound(snd_field, 1, true); // (som, prioridade, loop)

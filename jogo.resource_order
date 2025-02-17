@@ -34,6 +34,7 @@
     {"name":"obj_sensor","order":4,"path":"objects/obj_sensor/obj_sensor.yy",},
     {"name":"obj_transition","order":5,"path":"objects/obj_transition/obj_transition.yy",},
     {"name":"Level1","order":1,"path":"rooms/Level1/Level1.yy",},
+    {"name":"snd_monastery","order":1,"path":"sounds/snd_monastery/snd_monastery.yy",},
     {"name":"soundtrack","order":15,"path":"sounds/soundtrack/soundtrack.yy",},
     {"name":"floresta_layer2","order":1,"path":"sprites/floresta_layer2/floresta_layer2.yy",},
     {"name":"floresta_layer3","order":2,"path":"sprites/floresta_layer3/floresta_layer3.yy",},
