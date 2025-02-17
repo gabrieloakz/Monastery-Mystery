@@ -23,15 +23,6 @@ if (_right && _left) {
     velh = 0;
 }
 
-// Verificação de interação com a espada
-if (instance_exists(obj_sword)) {
-    if (place_meeting(x, y, obj_sword)) {
-        player_interacts_with_sword = true; // Define a variável para indicar que o jogador interagiu com a espada
-    } else {
-        player_interacts_with_sword = false; // Reseta a variável quando não há interação
-    }
-}
-
 // Reduzindo o cooldown entre ataques
 if (combo_cooldown > 0) {
     combo_cooldown -= 1; // Diminui o cooldown a cada step
