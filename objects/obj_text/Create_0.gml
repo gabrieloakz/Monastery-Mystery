@@ -1,4 +1,5 @@
 /// @description Create
+/// 
 visible = false; // A caixa de texto começa invisível
 current_text = "";
 text_speed = 5; // Velocidade da máquina de escrever (número de frames por caractere)
@@ -16,3 +17,5 @@ if (array_length(global.dialogues) > 0) {
     global.current_dialogue = "Nenhum diálogo disponível.";
     global.total_chars = string_length(global.current_dialogue);
 }
+
+GGG
