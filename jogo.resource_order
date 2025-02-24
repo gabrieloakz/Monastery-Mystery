@@ -33,6 +33,7 @@
     {"name":"obj_entidade","order":1,"path":"objects/obj_entidade/obj_entidade.yy",},
     {"name":"obj_monk","order":9,"path":"objects/obj_monk/obj_monk.yy",},
     {"name":"obj_sensor","order":4,"path":"objects/obj_sensor/obj_sensor.yy",},
+    {"name":"obj_speech_bubble","order":11,"path":"objects/obj_speech_bubble/obj_speech_bubble.yy",},
     {"name":"obj_text","order":10,"path":"objects/obj_text/obj_text.yy",},
     {"name":"obj_transition","order":5,"path":"objects/obj_transition/obj_transition.yy",},
     {"name":"Level1","order":1,"path":"rooms/Level1/Level1.yy",},

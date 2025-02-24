@@ -5,3 +5,14 @@ event_inherited();
 scale_factor = 0.65; // Altere este valor conforme necessidade
 image_xscale = scale_factor;
 image_yscale = scale_factor;
+
+//Dialogo
+dialogue_active = false;
+current_text_index = 0;
+
+// Defina os textos do diálogo aqui
+global.dialogues = [
+    "Olá! Bem-vindo ao meu templo.",
+    "Estou meditando, mas posso ajudar se precisar.",
+    "Pressione W novamente para continuar."
+];
