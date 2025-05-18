@@ -14,8 +14,8 @@ if (visible) { // Verifica se a caixa de texto está visível
         }
     }
 
-    // Avanço do diálogo com a tecla 'W'
-    if (keyboard_check_pressed((ord("W"))) && typing_complete) {
+    // Avanço do diálogo com a tecla 'Espaço'
+    if (keyboard_check_pressed(vk_enter) && typing_complete) {
         global.current_text_index += 1; // Avança para o próximo texto
 
         if (global.current_text_index < array_length(global.dialogues)) {
