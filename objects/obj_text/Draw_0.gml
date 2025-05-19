@@ -1,9 +1,9 @@
 /// @description Draw
 if (visible) {
     var text_width = string_width(current_text); // Calcula a largura do texto
-    var box_width = max(256, text_width + 32); // Define o tamanho mínimo da caixa
+    var box_width = max(400, text_width + 64); // Aumenta o tamanho mínimo da caixa e o padding
     var box_x = (room_width - box_width) / 2; // Centraliza horizontalmente
-    var box_y = room_height - 128; // Posição fixa na parte inferior
+    var box_y = room_height - 160; // Aumenta a distância do fundo
 
     // Desenha a caixa
     draw_set_font(fnt_text);
@@ -15,13 +15,13 @@ if (visible) {
     );
     
     // Desenha o texto com wrapping
-    var wrap_width = box_width - 32;    // largura interna disponível
+    var wrap_width = box_width - 48;    // Aumenta a margem interna
+    var line_height = 12;               // Define a altura da linha
     draw_set_color(c_black);
     draw_text_ext(
-        box_x + 16, box_y + 16,           // posição inicial
-        current_text,                     // string
-        0,                                // separador de linhas (0 usa quebra automática)
-        wrap_width                        // largura máxima antes de quebrar
+        box_x + 24, box_y + 24,         // Aumenta o padding interno
+        current_text,                    // string
+        line_height,                     // altura da linha
+        wrap_width                       // largura máxima antes de quebrar
     );
-    
 }

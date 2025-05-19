@@ -12,7 +12,7 @@ current_text_index = 0;
 
 // Defina os textos do diálogo aqui
 global.dialogues = [
-    "Olá! Bem-vindo ao meu templo.",
+    "Olá! Bem-vindo ao meu templo. \n Pressione enter para continuar",
     "Estou meditando, mas posso ajudar se precisar.",
-    "Pressione W novamente para continuar."
+    "Siga em frente e agarre na escritura sagrada que ali está"
 ];
