@@ -54,6 +54,8 @@
     {"id":{"name":"obj_entidade","path":"objects/obj_entidade/obj_entidade.yy",},},
     {"id":{"name":"obj_monk","path":"objects/obj_monk/obj_monk.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
+    {"id":{"name":"obj_scripture_text","path":"objects/obj_scripture_text/obj_scripture_text.yy",},},
+    {"id":{"name":"obj_scripture","path":"objects/obj_scripture/obj_scripture.yy",},},
     {"id":{"name":"obj_sensor","path":"objects/obj_sensor/obj_sensor.yy",},},
     {"id":{"name":"obj_speech_bubble","path":"objects/obj_speech_bubble/obj_speech_bubble.yy",},},
     {"id":{"name":"obj_text","path":"objects/obj_text/obj_text.yy",},},
