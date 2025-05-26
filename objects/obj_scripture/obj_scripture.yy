@@ -11,8 +11,8 @@
   "name":"obj_scripture",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Programming Puzzle",
+    "path":"folders/Objetos/Programming Puzzle.yy",
   },
   "parentObjectId":null,
   "persistent":false,

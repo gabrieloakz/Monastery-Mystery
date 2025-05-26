@@ -35,7 +35,7 @@
     {"name":"obj_monk","order":9,"path":"objects/obj_monk/obj_monk.yy",},
     {"name":"obj_puzzle_data","order":1,"path":"objects/obj_puzzle_data/obj_puzzle_data.yy",},
     {"name":"obj_scripture_text","order":13,"path":"objects/obj_scripture_text/obj_scripture_text.yy",},
-    {"name":"obj_scripture","order":12,"path":"objects/obj_scripture/obj_scripture.yy",},
+    {"name":"obj_scripture","order":2,"path":"objects/obj_scripture/obj_scripture.yy",},
     {"name":"obj_sensor","order":4,"path":"objects/obj_sensor/obj_sensor.yy",},
     {"name":"obj_speech_bubble","order":11,"path":"objects/obj_speech_bubble/obj_speech_bubble.yy",},
     {"name":"obj_text","order":10,"path":"objects/obj_text/obj_text.yy",},

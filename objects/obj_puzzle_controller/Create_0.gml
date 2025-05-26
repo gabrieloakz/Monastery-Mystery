@@ -16,6 +16,10 @@ current_state = PuzzleState.INACTIVE;
 active_puzzle_id = "";
 current_puzzle_data = noone;
 
+// No Create Event do obj_puzzle_controller
+global.puzzle_controller = id;
+
+
 // Variáveis de interface
 ui_alpha = 0;              // Transparência da UI (para animações)
 ui_target_alpha = 0;       // Valor alvo da transparência
