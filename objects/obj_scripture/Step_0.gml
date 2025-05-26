@@ -12,7 +12,7 @@ if (!is_discovered && instance_exists(obj_player)) {
 }
 
 // Só permite interação se foi descoberta e o sistema de puzzles não estiver ativo
-if (!is_discovered || !is_interactable || global.puzzle_controller.is_puzzle_active()) {
+if (!is_discovered || !is_interactable || (puzzle_controller != noone && puzzle_controller.current_state != PuzzleState.INACTIVE)) {
     target_scale = 1.0;
     image_xscale = lerp(image_xscale, target_scale * 0.6, scale_speed);
     image_yscale = lerp(image_yscale, target_scale * 0.6, scale_speed);
