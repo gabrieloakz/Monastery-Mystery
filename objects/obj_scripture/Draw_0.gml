@@ -1,42 +1,47 @@
-// Em obj_scripture/Draw_0.gml
-/// @description Draw
-// Desenha o sprite normal quando fechado
-if (!is_open) {
-    draw_self();
+// obj_scripture Draw Event
+/// @description Draw - Efeitos visuais aprimorados
+
+// Só desenha se foi descoberta
+if (!is_discovered) {
+    exit;
 }
 
-// Desenha a versão grande quando aberto
-if (is_open) {
-    // Desenha o overlay escuro
-    draw_set_alpha(fade_alpha * 0.5);
-    draw_set_color(c_black);
-    draw_rectangle(0, 0, room_width, room_height, false);
+// Desenha efeito de brilho se não foi resolvida
+if (!is_solved && glow_alpha > 0) {
+    // Brilho dourado ao redor da escritura
+    draw_set_alpha(glow_alpha * 0.3);
+    draw_set_color(make_color_rgb(255, 215, 0)); // Dourado
+    
+    // Desenha múltiplos círculos para criar efeito de brilho
+    for (var i = 1; i <= 3; i++) {
+        draw_circle(x, y, 25 + (i * 8), true);
+    }
+    
     draw_set_alpha(1);
-    
-    // Calcula o tamanho da folha (80% da tela)
-    var box_width = room_width * 0.8;
-    var box_height = room_height * 0.8;
-    var box_x = (room_width - box_width) / 2;
-    var box_y = (room_height - box_height) / 2;
-    
-    // Desenha o sprite da escritura em tamanho maior
-    draw_sprite_ext(
-        spr_ui_books, 0,
-        box_x, box_y,
-        box_width / sprite_get_width(spr_ui_books),
-        box_height / sprite_get_height(spr_ui_books),
-        0, c_white, 1
-    );
-    
-    // Desenha o texto sobre a escritura
-    var wrap_width = box_width - 128;
-    var line_height = 20;
-    draw_set_color(c_black);
-    draw_set_font(fnt_text);
-    draw_text_ext(
-        box_x + 64, box_y + 64,
-        string_copy(text_content, 1, floor(char_index)),
-        line_height,
-        wrap_width
-    );
+    draw_set_color(c_white);
 }
+
+// Desenha o sprite principal
+draw_self();
+
+// Desenha indicador visual se resolvida
+if (is_solved) {
+    // Marca de "check" ou símbolo de completado
+    draw_set_color(make_color_rgb(34, 139, 34)); // Verde
+    draw_set_alpha(0.8);
+    
+    // Desenha um círculo verde pequeno no canto
+    draw_circle(x + sprite_width/4, y - sprite_height/4, 8, false);
+    
+    // Desenha um "✓" simples
+    draw_set_color(c_white);
+    draw_set_alpha(1);
+    var check_x = x + sprite_width/4;
+    var check_y = y - sprite_height/4;
+    draw_line_width(check_x - 3, check_y, check_x - 1, check_y + 2, 2);
+    draw_line_width(check_x - 1, check_y + 2, check_x + 3, check_y - 2, 2);
+}
+
+// Reset das configurações de desenho
+draw_set_alpha(1);
+draw_set_color(c_white);
