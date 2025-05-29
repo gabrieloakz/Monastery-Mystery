@@ -54,6 +54,7 @@
     {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},},
     {"id":{"name":"obj_entidade","path":"objects/obj_entidade/obj_entidade.yy",},},
     {"id":{"name":"obj_monk","path":"objects/obj_monk/obj_monk.yy",},},
+    {"id":{"name":"obj_paper_reader","path":"objects/obj_paper_reader/obj_paper_reader.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_puzzle_controller","path":"objects/obj_puzzle_controller/obj_puzzle_controller.yy",},},
     {"id":{"name":"obj_puzzle_data","path":"objects/obj_puzzle_data/obj_puzzle_data.yy",},},
