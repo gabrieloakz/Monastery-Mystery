@@ -54,6 +54,22 @@ if (!is_solved) {
     }
 }
 
+// Atualiza a escala de expansão se necessário
+if (is_expanding) {
+    expand_progress += expand_speed;
+    
+    if (expand_progress >= 1) {
+        expand_progress = 1;
+        is_expanding = false;
+        
+        // Agora que a expansão terminou, abre o puzzle
+        if (instance_exists(puzzle_controller)) {
+            puzzle_controller.open_puzzle(puzzle_id);
+        }
+    }
+    exit;
+}
+
 // Função para interagir com a escritura
 function interact_with_scripture() {
     // Verifica se o puzzle já foi resolvido
@@ -62,21 +78,23 @@ function interact_with_scripture() {
         return;
     }
     
-    // Tenta abrir o puzzle
-    var success = puzzle_controller.open_puzzle(puzzle_id);
+    // Calcula a escala necessária para preencher a tela
+    var view_width = view_wport[0];
+    var view_height = view_hport[0];
+    var scale_x = view_width / sprite_width;
+    var scale_y = view_height / sprite_height;
+    final_scale = min(scale_x, scale_y) * 0.8; // 80% do tamanho da tela
     
-    if (success) {
-        // Som de interação
-        // audio_play_sound(interaction_sound, 1, false);
-        
-        // Marca que esta escritura foi interagida
-        is_interactable = false; // Temporariamente não interagível durante o puzzle
-        
-        // Opcional: Adicionar um timer para reativar a interação caso o puzzle seja fechado sem resolver
-        alarm[0] = 300; // 5 segundos em 60 FPS
-    } else {
-        show_message("Não é possível abrir esta escritura agora.");
-    }
+    // Inicia a animação de expansão
+    is_expanding = true;
+    expand_progress = 0;
+    is_interactable = false;
+    
+    // Som de interação
+    // audio_play_sound(interaction_sound, 1, false);
+    
+    // Opcional: Adicionar um timer para reativar a interação caso o puzzle seja fechado sem resolver
+    alarm[0] = 300; // 5 segundos em 60 FPS
 }
 
 // Função chamada quando o puzzle é resolvido (deve ser chamada pelo controlador)

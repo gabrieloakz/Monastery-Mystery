@@ -117,3 +117,6 @@ if (keyboard_check_pressed(vk_escape)) {
         player_controls = true;
     }
 }
+
+// Verifica input para mutar/desmutar o áudio (funciona em qualquer estado do jogo)
+check_mute_input();
