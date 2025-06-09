@@ -11,7 +11,7 @@ if (player && w)
 	//Transição
 	var tran = instance_create_layer(0, 0, layer, obj_transition);
 	tran.goal = goal;
-	tran.goal_x = goal_y;
+	tran.goal_x = goal_x;
 	tran.goal_y = goal_y;
 	
 }
