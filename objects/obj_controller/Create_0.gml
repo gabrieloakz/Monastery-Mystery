@@ -27,11 +27,27 @@ font_title = font_main;
 font_menu = font_secondary; 
 
 // Estados do jogo
-game_state = "transition_in"; // Estados: transition_in, playing, paused
-fade_alpha = 1; // Para transição inicial
-menu_active = true;
-player_controls = false; // Controles desativados inicialmente
-//game_state = "menu";
+
+
+if (room = Forest || keyboard_check_pressed(vk_escape))  
+{ 
+
+    game_state = "transition_in"; // Estados: transition_in, playing, paused
+    fade_alpha = 1; // Para transição inicial
+    menu_active = true;
+    player_controls = false; // Controles desativados inicialmente
+    //game_state = "menu";
+
+}
+else
+{
+    game_state = "playing";
+    fade_alpha = 0; // Para transição inicial
+    menu_active = false;
+    player_controls = true; // Controles desativados inicialmente
+}	
+
+
 
 // Menu
 menu_options = ["Play", "Options", "Exit"];

@@ -1,4 +1,4 @@
-// Transição inicial (fade in)
+// Transição inicial menu (fade in)
 if (game_state == "transition_in") {
     fade_alpha -= 0.02; // Velocidade do fade (ajuste conforme necessário)
     
