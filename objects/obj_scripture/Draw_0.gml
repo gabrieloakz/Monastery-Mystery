@@ -6,15 +6,26 @@ if (!is_discovered) {
     exit;
 }
 
-// Calcula o centro do sprite
+// Calcula o centro do sprite para efeitos como o brilho
 var center_x = x;
 var center_y = y - sprite_height/4; // Ajuste vertical para centralizar o brilho
 
-// Se estiver expandindo, ajusta a escala
+// Se estiver expandindo, ajusta a escala e a posição para centralizar na vista
 if (is_expanding) {
     var current_scale = lerp(original_scale, final_scale, expand_progress);
-    draw_sprite_ext(sprite_index, image_index, x, y, 
-                   current_scale, current_scale, 0, c_white, 1);
+
+    // Calcula o centro da vista atual
+    var view_center_x = camera_get_view_x(view_camera[0]) + camera_get_view_width(view_camera[0]) / 2;
+    var view_center_y = camera_get_view_y(view_camera[0]) + camera_get_view_height(view_camera[0]) / 2;
+
+    // Interpola a posição do objeto da sua posição original para o centro da vista
+    var draw_pos_x = lerp(x, view_center_x, expand_progress);
+    var draw_pos_y = lerp(y, view_center_y, expand_progress);
+
+    // Desenha o sprite com a escala e posição interpoladas
+    draw_sprite_ext(sprite_index, image_index, 
+                    draw_pos_x, draw_pos_y, 
+                    current_scale, current_scale, 0, c_white, 1);
 } else {
     // Desenha efeito de brilho se não foi resolvida
     if (!is_solved && glow_alpha > 0) {
@@ -31,7 +42,7 @@ if (is_expanding) {
         draw_set_color(c_white);
     }
     
-    // Desenha o sprite principal
+    // Desenha o sprite principal na sua posição normal
     draw_self();
 }
 

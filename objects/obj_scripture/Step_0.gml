@@ -11,6 +11,17 @@ if (!is_discovered && instance_exists(obj_player)) {
     }
 }
 
+// Garante que temos uma referência válida e atualizada ao puzzle controller.
+// É fundamental que esta linha seja executada a cada passo para que 'puzzle_controller'
+// contenha sempre o ID da instância correta, mesmo após carregamento de sala ou resets.
+puzzle_controller = instance_find(obj_puzzle_controller, 0);
+if (puzzle_controller == noone) {
+    // Se, por algum motivo, o controlador não for encontrado (ex: não estava na sala
+    // ou foi destruído e não persistiu corretamente por algum erro), cria-o.
+    // (Idealmente, com 'persistent = true' no obj_puzzle_controller, isto raramente será necessário).
+    puzzle_controller = instance_create_depth(0, 0, -1000, obj_puzzle_controller);
+}
+
 // Só permite interação se foi descoberta e o sistema de puzzles não estiver ativo
 if (!is_discovered || !is_interactable || (puzzle_controller != noone && puzzle_controller.current_state != PuzzleState.INACTIVE)) {
     target_scale = 1.0;
@@ -19,8 +30,10 @@ if (!is_discovered || !is_interactable || (puzzle_controller != noone && puzzle_
     exit;
 }
 
-// Verifica se o mouse está sobre a escritura
-var mouse_over = position_meeting(mouse_x, mouse_y, id);
+// Verifica se o mouse está sobre a escritura, usando uma área ligeiramente maior para facilitar o clique
+var mouse_over = point_in_rectangle(mouse_x, mouse_y, 
+                                    bbox_left - 5, bbox_top - 5, 
+                                    bbox_right + 5, bbox_bottom + 5);
 
 if (mouse_over) {
     // Mouse por cima - aumenta ligeiramente o tamanho
@@ -63,8 +76,14 @@ if (is_expanding) {
         is_expanding = false;
         
         // Agora que a expansão terminou, abre o puzzle
+        // Usamos instance_exists aqui por segurança, apesar da atualização no início do Step.
         if (instance_exists(puzzle_controller)) {
             puzzle_controller.open_puzzle(puzzle_id);
+        } else {
+            // Se o controller não existir, reseta o estado
+            is_interactable = true;
+            is_expanding = false;
+            expand_progress = 0;
         }
     }
     exit;

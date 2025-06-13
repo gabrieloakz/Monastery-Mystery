@@ -8,11 +8,11 @@
   "instanceCreationOrder":[
     {"name":"inst_7D0E071A","path":"rooms/Forest/Forest.yy",},
     {"name":"inst_186BC9B4","path":"rooms/Forest/Forest.yy",},
-    {"name":"inst_3F11E48A","path":"rooms/Forest/Forest.yy",},
     {"name":"inst_1EA52BB1","path":"rooms/Forest/Forest.yy",},
     {"name":"inst_55AFF97F","path":"rooms/Forest/Forest.yy",},
     {"name":"inst_32E05F0D","path":"rooms/Forest/Forest.yy",},
     {"name":"inst_6D28FFDE","path":"rooms/Forest/Forest.yy",},
+    {"name":"inst_3F11E48A","path":"rooms/Forest/Forest.yy",},
   ],
   "isDnd":false,
   "layers":[

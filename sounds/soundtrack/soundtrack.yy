@@ -9,7 +9,7 @@
   "bitRate":512,
   "compression":0,
   "conversionMode":0,
-  "duration":60.631588,
+  "duration":0.0,
   "name":"soundtrack",
   "parent":{
     "name":"jogo",

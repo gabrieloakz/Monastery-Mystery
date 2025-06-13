@@ -1,6 +1,8 @@
 // obj_scripture Create Event
 /// @description Create - Sistema melhorado
 
+persistent = true; // Torna a escritura persistente se o seu estado precisar de ser mantido entre salas.
+
 // ID único do puzzle desta escritura
 puzzle_id = "scripture_intro"; // Muda este valor para cada escritura diferente
 
@@ -27,11 +29,14 @@ original_scale = 0.6;      // Escala inicial do objeto
 image_xscale = 0.6;
 image_yscale = 0.6;
 
-// Referência ao controlador de puzzles
+// Garante que o puzzle_controller existe e é persistente
+// e que a nossa variável 'puzzle_controller' aponta para ele.
+// Se obj_puzzle_controller já foi criado (e é persistente), instance_find vai encontrá-lo.
+// Se não, ele será criado aqui. Isso garante que sempre temos uma referência válida.
 puzzle_controller = instance_find(obj_puzzle_controller, 0);
 if (puzzle_controller == noone) {
-    // Cria o controlador se não existir
     puzzle_controller = instance_create_depth(0, 0, -1000, obj_puzzle_controller);
+    puzzle_controller.persistent = true; // Garante que o recém-criado também é persistente
 }
 
 // Marca como descoberta se o jogador chegou perto

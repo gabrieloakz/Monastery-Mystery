@@ -42,14 +42,14 @@ draw_set_valign(fa_top);
 // Desenha o título do puzzle
 var title = ds_map_find_value(current_puzzle_data, "title");
 draw_set_color(accent_color);
-draw_set_font(fnt_title); // Fonte maior para título, se tiveres
+draw_set_font(font_main); // Fonte maior para título, se tiveres
 draw_text(ui_x + 20, title_y, title);
 
 // Desenha a descrição
 draw_set_color(text_color);
 draw_set_font(fnt_text);
 var description = ds_map_find_value(current_puzzle_data, "description");
-draw_text_ext(ui_x + 20, description_y, description, 20, ui_width - 40);
+draw_text_ext(ui_x + 20, description_y, description, 14, ui_width - 40);
 
 // Desenha a área do código (com fundo diferenciado)
 var code_bg_color = make_color_rgb(30, 25, 20); // Mais escuro que o fundo principal
@@ -62,7 +62,7 @@ draw_rectangle(ui_x + 20, code_area_y, ui_x + ui_width - 20, code_area_y + code_
 
 // Desenha o código do puzzle com formatação especial
 draw_set_color(make_color_rgb(200, 200, 200)); // Cor de código (cinza claro)
-draw_set_font(fnt_code); // Fonte monoespaçada se tiveres, senão usa fnt_text
+draw_set_font(fnt_text); // Fonte monoespaçada se tiveres, senão usa fnt_text
 var code_template = ds_map_find_value(current_puzzle_data, "code_template");
 
 // Processa o template do código para destacar as lacunas
