@@ -8,7 +8,7 @@ if (!is_discovered) {
 
 // Calcula o centro do sprite para efeitos como o brilho
 var center_x = x;
-var center_y = y - sprite_height/4; // Ajuste vertical para centralizar o brilho
+var center_y = y; // Alterado para usar o centro real do sprite (Origin: Middle Centre)
 
 // Se estiver expandindo, ajusta a escala e a posição para centralizar na vista
 if (is_expanding) {
@@ -21,6 +21,12 @@ if (is_expanding) {
     // Interpola a posição do objeto da sua posição original para o centro da vista
     var draw_pos_x = lerp(x, view_center_x, expand_progress);
     var draw_pos_y = lerp(y, view_center_y, expand_progress);
+
+    // MENSAGENS DE DEBUG - AJUDAM A DIAGNOSTICAR O PORQUÊ DE ESTAR A FUGIR
+    show_debug_message("DEBUG: Expansão - current_scale: " + string(current_scale) + ", final_scale: " + string(final_scale));
+    show_debug_message("DEBUG: Expansão - view_width: " + string(camera_get_view_width(view_camera[0])) + ", view_height: " + string(camera_get_view_height(view_camera[0])));
+    show_debug_message("DEBUG: Expansão - sprite_width: " + string(sprite_width) + ", sprite_height: " + string(sprite_height));
+    show_debug_message("DEBUG: Expansão - draw_pos_x: " + string(draw_pos_x) + ", draw_pos_y: " + string(draw_pos_y));
 
     // Desenha o sprite com a escala e posição interpoladas
     draw_sprite_ext(sprite_index, image_index, 

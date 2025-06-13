@@ -16,14 +16,13 @@ if (!is_discovered && instance_exists(obj_player)) {
 // contenha sempre o ID da instância correta, mesmo após carregamento de sala ou resets.
 puzzle_controller = instance_find(obj_puzzle_controller, 0);
 if (puzzle_controller == noone) {
-    // Se, por algum motivo, o controlador não for encontrado (ex: não estava na sala
-    // ou foi destruído e não persistiu corretamente por algum erro), cria-o.
-    // (Idealmente, com 'persistent = true' no obj_puzzle_controller, isto raramente será necessário).
     puzzle_controller = instance_create_depth(0, 0, -1000, obj_puzzle_controller);
+    puzzle_controller.persistent = true; // Garante que o recém-criado também é persistente
 }
 
-// Só permite interação se foi descoberta e o sistema de puzzles não estiver ativo
-if (!is_discovered || !is_interactable || (puzzle_controller != noone && puzzle_controller.current_state != PuzzleState.INACTIVE)) {
+// Só permite interação se foi descoberta, se o objeto pode ser interagido (is_interactable)
+// E, CRUCIALMENTE, se o sistema de puzzles NÃO estiver ativo ou expandindo.
+if (!is_discovered || !is_interactable || (is_expanding) || (puzzle_controller != noone && puzzle_controller.current_state != PuzzleState.INACTIVE)) {
     target_scale = 1.0;
     image_xscale = lerp(image_xscale, target_scale * 0.6, scale_speed);
     image_yscale = lerp(image_yscale, target_scale * 0.6, scale_speed);
@@ -104,16 +103,23 @@ function interact_with_scripture() {
     var scale_y = view_height / sprite_height;
     final_scale = min(scale_x, scale_y) * 0.8; // 80% do tamanho da tela
     
-    // Inicia a animação de expansão
-    is_expanding = true;
-    expand_progress = 0;
-    is_interactable = false;
-    
-    // Som de interação
-    // audio_play_sound(interaction_sound, 1, false);
-    
-    // Opcional: Adicionar um timer para reativar a interação caso o puzzle seja fechado sem resolver
-    alarm[0] = 300; // 5 segundos em 60 FPS
+    // ABRIR O PUZZLE AQUI, ANTES DE INICIAR A ANIMAÇÃO!
+    if (instance_exists(puzzle_controller)) {
+        if (puzzle_controller.open_puzzle(puzzle_id)) {
+            // Se o puzzle abriu com sucesso, inicia a animação visual de expansão
+            is_expanding = true;
+            expand_progress = 0;
+            is_interactable = false; // Desabilita interação enquanto o puzzle está aberto/expandindo
+            alarm[0] = 300; // Opcional: Adicionar um timer para reativar a interação caso o puzzle seja fechado sem resolver
+        } else {
+            // Se não foi possível abrir o puzzle (talvez já esteja ativo ou ID inválido)
+            show_debug_message("DEBUG: Não foi possível abrir o puzzle (obj_scripture).");
+            is_interactable = true; // Reativa a interação se o puzzle não abriu
+        }
+    } else {
+        show_debug_message("ERRO: puzzle_controller não encontrado ao tentar abrir o puzzle em obj_scripture.");
+        is_interactable = true; // Reativa a interação se não há controller
+    }
 }
 
 // Função chamada quando o puzzle é resolvido (deve ser chamada pelo controlador)

@@ -47,6 +47,8 @@
   },
   "name":"jogo",
   "resources":[
+    {"id":{"name":"fnt_puzzle_body","path":"fonts/fnt_puzzle_body/fnt_puzzle_body.yy",},},
+    {"id":{"name":"fnt_puzzle_title","path":"fonts/fnt_puzzle_title/fnt_puzzle_title.yy",},},
     {"id":{"name":"fnt_text","path":"fonts/fnt_text/fnt_text.yy",},},
     {"id":{"name":"font_main","path":"fonts/font_main/font_main.yy",},},
     {"id":{"name":"font_secondary","path":"fonts/font_secondary/font_secondary.yy",},},

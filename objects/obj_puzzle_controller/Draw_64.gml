@@ -34,7 +34,7 @@ if (current_puzzle_data == noone) {
 }
 
 // Configura fonte e cor padrão para texto
-draw_set_font(fnt_text); // Assumes que tens uma fonte chamada fnt_text
+draw_set_font(fnt_puzzle_body); // Agora usa a nova fonte para o corpo
 draw_set_color(text_color);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
@@ -42,37 +42,51 @@ draw_set_valign(fa_top);
 // Desenha o título do puzzle
 var title = ds_map_find_value(current_puzzle_data, "title");
 draw_set_color(accent_color);
-draw_set_font(font_main); // Fonte maior para título, se tiveres
+draw_set_font(fnt_puzzle_title); // Agora usa a nova fonte para o título
 draw_text(ui_x + 20, title_y, title);
 
-// Desenha a descrição
-draw_set_color(text_color);
-draw_set_font(fnt_text);
+// Calcula a posição para a descrição, baseada no título
+var current_y = title_y + string_height(title) + 10; // 10 pixels de margem após o título
+
+draw_set_color(c_white); // Cor branca para a descrição (melhor visibilidade)
+draw_set_font(fnt_puzzle_body); // Agora usa a nova fonte para o corpo
 var description = ds_map_find_value(current_puzzle_data, "description");
-draw_text_ext(ui_x + 20, description_y, description, 14, ui_width - 40);
+draw_text_ext(ui_x + 20, current_y, description, 8, ui_width - 40); // Espaçamento de linha de 8 pixels
+
+// Atualiza current_y após a descrição
+current_y += string_height_ext(description, 8, ui_width - 40) + 15; // 15 pixels de margem após a descrição
 
 // Desenha a área do código (com fundo diferenciado)
 var code_bg_color = make_color_rgb(30, 25, 20); // Mais escuro que o fundo principal
+var code_content = ds_map_find_value(current_puzzle_data, "code_template");
+var processed_code = process_code_template(code_content);
+
+// Calcula a altura necessária para o código
+var dynamic_code_actual_height = string_height_ext(processed_code, 8, ui_width - 60); // Sep de 8
+
+// Define a altura da área do código com um mínimo para garantir espaço (ex: 50 pixels)
+var dynamic_code_area_height = max(dynamic_code_actual_height + 10, 50); // Altura do texto + padding, ou 50 pixels mínimo
+
 draw_set_color(code_bg_color);
-draw_rectangle(ui_x + 20, code_area_y, ui_x + ui_width - 20, code_area_y + code_area_height, false);
+draw_rectangle(ui_x + 20, current_y, ui_x + ui_width - 20, current_y + dynamic_code_area_height, false);
 
 // Borda da área de código
 draw_set_color(border_color);
-draw_rectangle(ui_x + 20, code_area_y, ui_x + ui_width - 20, code_area_y + code_area_height, true);
+draw_rectangle(ui_x + 20, current_y, ui_x + ui_width - 20, current_y + dynamic_code_area_height, true);
 
 // Desenha o código do puzzle com formatação especial
 draw_set_color(make_color_rgb(200, 200, 200)); // Cor de código (cinza claro)
-draw_set_font(fnt_text); // Fonte monoespaçada se tiveres, senão usa fnt_text
-var code_template = ds_map_find_value(current_puzzle_data, "code_template");
+draw_set_font(fnt_puzzle_body); // Agora usa a nova fonte para o corpo/código
+draw_text_ext(ui_x + 30, current_y + 5, processed_code, 8, ui_width - 60); // Ajusta o Y, espaçamento de 8 pixels
 
-// Processa o template do código para destacar as lacunas
-var processed_code = process_code_template(code_template);
-draw_text_ext(ui_x + 30, code_area_y + 10, processed_code, 18, ui_width - 60);
+// Atualiza current_y após a área do código
+current_y += dynamic_code_area_height + 10; // 10 pixels de margem após a área de código
 
 // Desenha área de input do jogador
+var input_box_y = current_y; // A nova posição do input
+var input_box_height = 35; // Altura fixa para o input box (pode ser ajustado)
+
 draw_set_color(make_color_rgb(50, 45, 40));
-var input_box_y = input_area_y;
-var input_box_height = 35;
 draw_rectangle(ui_x + 20, input_box_y, ui_x + ui_width - 20, input_box_y + input_box_height, false);
 
 // Borda da área de input
@@ -93,12 +107,27 @@ if (show_cursor && current_state == PuzzleState.ACTIVE) {
     draw_line(cursor_x, input_box_y + 5, cursor_x, input_box_y + input_box_height - 5);
 }
 
+// Atualiza current_y após a área de input
+current_y = input_box_y + input_box_height + 10; // 10 pixels de margem após o input
+
 // Desenha dica se disponível
 var hint = ds_map_find_value(current_puzzle_data, "hint");
 if (hint != undefined && hint != "") {
     draw_set_color(make_color_rgb(150, 130, 100)); // Cor mais suave para dica
-    draw_text_ext(ui_x + 20, hint_y, "Dica: " + hint, 16, ui_width - 40);
+    draw_set_font(fnt_puzzle_body); // Usar a fonte do corpo para a dica
+    draw_text_ext(ui_x + 20, current_y, "Dica: " + hint, 8, ui_width - 40);
+    current_y += string_height_ext("Dica: " + hint, 8, ui_width - 40) + 10; // Atualiza current_y após a dica
 }
+
+// Ajusta a posição do botão de submeter e fechar com base no fluxo dinâmico
+// Assumimos que 'button_area_y' e 'hint_y' não serão mais usados como posições fixas.
+// Se precisarmos de botões abaixo de todos os elementos, eles devem usar 'current_y' como base.
+// Por agora, vamos manter 'button_area_y' com o seu cálculo original para não introduzir novos bugs, mas ciente que pode precisar de ajuste.
+// A função draw_buttons() e draw_close_button() ainda usam 'button_area_y' e 'ui_y + ui_height - 30'.
+// Para os botões ficarem imediatamente abaixo do último elemento, podemos redefinir 'button_area_y' aqui.
+
+// Definindo a área dos botões para ficar abaixo de todo o conteúdo dinâmico
+button_area_y = current_y + 10; // 10 pixels de margem após o último elemento dinâmico (dica ou input)
 
 // Desenha botões de ação
 draw_buttons();

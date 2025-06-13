@@ -27,6 +27,8 @@
     {"name":"Pulando","order":3,"path":"folders/Sprites/Player/Pulando.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"fnt_puzzle_body","order":4,"path":"fonts/fnt_puzzle_body/fnt_puzzle_body.yy",},
+    {"name":"fnt_puzzle_title","order":3,"path":"fonts/fnt_puzzle_title/fnt_puzzle_title.yy",},
     {"name":"fnt_text","order":2,"path":"fonts/fnt_text/fnt_text.yy",},
     {"name":"font_secondary","order":1,"path":"fonts/font_secondary/font_secondary.yy",},
     {"name":"obj_block","order":2,"path":"objects/obj_block/obj_block.yy",},
