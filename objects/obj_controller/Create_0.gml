@@ -2,6 +2,9 @@
 global.base_width = 320;
 global.base_height = 180;
 
+// testar if roomk level1 camer maior ou sla
+
+
 var screen_width = display_get_width();
 var screen_height = display_get_height();
 var scale_factor = min(screen_width / global.base_width, screen_height / global.base_height);
