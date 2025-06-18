@@ -1,6 +1,20 @@
 // Configuração de resolução e câmera
+
+if (room = Forest) 
+{
+	global.base_width = 320;
+    global.base_height = 180;
+}
+if (room = Level1) 
+{
+	global.base_width = 640;
+    global.base_height = 360;
+}
+
+/*
 global.base_width = 320;
 global.base_height = 180;
+*/
 
 var screen_width = display_get_width();
 var screen_height = display_get_height();

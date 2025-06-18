@@ -11,7 +11,9 @@ draw_set_alpha(ui_alpha);
 
 // Desenha overlay escuro de fundo (para dar foco à interface)
 draw_set_color(c_black);
-draw_rectangle(0, 0, room_width, room_height, false);
+var view_width = camera_get_view_width(view_camera[0]);
+var view_height = camera_get_view_height(view_camera[0]);
+draw_rectangle(0, 0, view_width, view_height, false);
 draw_set_alpha(ui_alpha * 0.7); // Overlay um pouco mais transparente
 
 // Desenha o fundo principal da interface (simula pergaminho antigo)
@@ -94,7 +96,7 @@ draw_set_color(accent_color);
 draw_rectangle(ui_x + 20, input_box_y, ui_x + ui_width - 20, input_box_y + input_box_height, true);
 
 // Label da área de input
-draw_set_color(text_color);
+draw_set_color(c_white);
 draw_text(ui_x + 25, input_box_y - 20, "Sua resposta:");
 
 // Texto do input do jogador

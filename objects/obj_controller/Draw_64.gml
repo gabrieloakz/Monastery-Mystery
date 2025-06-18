@@ -2,7 +2,7 @@
 // Transição de fade
 draw_set_alpha(fade_alpha);
 draw_set_color(c_black);
-draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+draw_rectangle(0, 0, global.base_width, global.base_height, false);
 draw_set_alpha(1);
 
 // Menu
@@ -14,7 +14,7 @@ if (menu_active) {
     draw_set_color(c_white);
     
     // Título centralizado
-    draw_text(display_get_gui_width() / 2, 30, "Monastery Mystery");
+    draw_text(global.base_width / 2, 30, "Monastery Mystery");
     
     // Configurações para opções do menu
     draw_set_font(font_menu);
@@ -28,12 +28,12 @@ if (menu_active) {
         if (i != 1) {
             var color = (i == selected_option) ? c_yellow : c_white;
             draw_set_color(color);
-            draw_text(display_get_gui_width() / 2, option_y, menu_options[i]);
+            draw_text(global.base_width / 2, option_y, menu_options[i]);
         }
         // Options fixo em cinza
         else {
             draw_set_color(c_gray);
-            draw_text(display_get_gui_width() / 2, option_y, "Options (Em breve)");
+            draw_text(global.base_width / 2, option_y, "Options (Em breve)");
         }
     }
 }

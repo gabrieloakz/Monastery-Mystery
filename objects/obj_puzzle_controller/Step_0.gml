@@ -10,6 +10,11 @@ if (ui_alpha != ui_target_alpha) {
     }
 }
 
+// Limpa o keyboard_string quando o puzzle não está ativo para evitar input indesejado
+if (current_state != PuzzleState.ACTIVE) {
+    keyboard_string = "";
+}
+
 // Gerencia os diferentes estados do sistema
 switch (current_state) {
     case PuzzleState.OPENING:
@@ -91,6 +96,11 @@ if (feedback_timer > 0) {
 
 // Função para gerir input do jogador
 function handle_player_input() {
+    // Só captura input se o puzzle estiver realmente ativo
+    if (current_state != PuzzleState.ACTIVE) {
+        return;
+    }
+    
     // Captura caracteres digitados
     var input_string = keyboard_string;
     if (string_length(input_string) > 0) {
@@ -158,30 +168,27 @@ function check_player_answer() {
 function apply_puzzle_reward() {
     if (current_puzzle_data == noone) return;
     
+    // Não dar recompensa para o puzzle de introdução
+    if (active_puzzle_id == "scripture_intro") {
+        return;
+    }
     var reward_type = ds_map_find_value(current_puzzle_data, "reward_type");
     var reward_target = ds_map_find_value(current_puzzle_data, "reward_target");
     
     switch (reward_type) {
         case "unlock_door":
-            // Procura e desbloqueia a porta especificada
-            var door = instance_find_by_name(reward_target);
+            var door = instance_find(obj_door_biblioteca, 0);
             if (door != noone) {
                 door.is_locked = false;
                 show_message("Uma porta foi desbloqueada!");
             }
             break;
-            
         case "give_item":
-            // Adiciona item ao inventário do jogador
-            // Assumes que tens um sistema de inventário
             if (instance_exists(obj_player)) {
-                // obj_player.add_item(reward_target);
                 show_message("Recebeste um novo item: " + reward_target);
             }
             break;
-            
         case "activate_mechanism":
-            // Ativa um mecanismo específico
             var mechanism = instance_find_by_name(reward_target);
             if (mechanism != noone) {
                 mechanism.is_active = true;

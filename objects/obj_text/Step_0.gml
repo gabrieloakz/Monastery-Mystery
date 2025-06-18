@@ -1,4 +1,7 @@
 /// @description Step
+
+if (global.game_state != "playing") exit;
+
 if (visible) { // Verifica se a caixa de texto está visível
     if (!typing_complete) {
         // Incrementa o índice de caractere
