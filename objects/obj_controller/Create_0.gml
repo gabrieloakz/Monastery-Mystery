@@ -64,7 +64,7 @@ else
 
 
 // Menu
-menu_options = ["Play", "Options", "Exit"];
+menu_options = ["Jogar", "Opções", "Sair"];
 selected_option = 0;
 
 audio_play_sound(snd_field, 1, true); // (som, prioridade, loop)
