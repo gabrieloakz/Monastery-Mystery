@@ -8,8 +8,8 @@ puzzles = ds_map_create();
 var puzzle1 = ds_map_create();
 ds_map_add(puzzle1, "title", "As Primeiras Palavras");
 ds_map_add(puzzle1, "description", "Complete o código para declarar uma variável:");
-ds_map_add(puzzle1, "code_template", "var _____ = \"Mosteiro\";\nshow_debug_message(nome_local);");
-ds_map_add(puzzle1, "blanks", "nome_local"); // Respostas corretas separadas por vírgula
+ds_map_add(puzzle1, "code_template", "var nome_local = \"_____\";\nshow_debug_message(nome_local);");
+ds_map_add(puzzle1, "blanks", "Mosteiro"); // Respostas corretas separadas por vírgula
 ds_map_add(puzzle1, "hint", "Pense no nome que daria a este lugar sagrado...");
 ds_map_add(puzzle1, "reward_type", "unlock_door");
 ds_map_add(puzzle1, "reward_target", "door_biblioteca");
